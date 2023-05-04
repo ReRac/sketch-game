@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  border-color: 1px solid black;
+  justify-content: space-around;
+  justify-items: center;
+  align-items: center;
+}
+.grid {
+  display: grid;
+  width: 960px;
+  border-color: 1px solid black;
+  grid-template-rows: auto;
+  grid-template-columns: auto;
+}
+
+.cell {
+  border-color: 1px solid black;
+}

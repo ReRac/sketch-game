@@ -15,7 +15,7 @@
   width: 960px;
   border-color: 1px solid black;
   grid-template-rows: auto;
-  grid-template-columns: auto;
+  grid-template-columns: auto;z
 }
 
 .cell {

@@ -1,23 +1,31 @@
-* {
-  box-sizing: border-box;
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+}
+body {
   margin: 0;
+  box-sizing: border-box;
 }
-
-.main {
+#container {
   display: flex;
+  flex-direction: column;
   border-color: 1px solid black;
-  justify-content: space-around;
-  justify-items: center;
+  justify-content: space-evenly;
   align-items: center;
-}
-.grid {
-  display: grid;
-  width: 960px;
-  border-color: 1px solid black;
-  grid-template-rows: auto;
-  grid-template-columns: auto;z
+  margin: 25px;
 }
 
-.cell {
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.boxes {
   border-color: 1px solid black;
+}
+
+.boxes {
+  display: grid;
+  grid-template: 150px / auto auto auto;
 }

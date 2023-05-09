@@ -1,19 +1,16 @@
-const newContainer = document.createElement("div");
-newContainer.textContent = "Let's draw something nice!";
-document.body.appendChild(newContainer);
-newContainer.setAttribute("id", "container");
+const resetBtn = document.querySelector(".reset");
+const colorBtn = document.querySelector(".color");
+const monocromaticBtn = document.querySelector(".monochromatic");
+const submitBtn = document.querySelector(".submit");
 
-const div1 = document.createElement("div1");
-document.body.appendChild(div1);
-div1.setAttribute("id", "main");
+const gridB = document.querySelector("#gridBox");
 
-const grid = document.createElement("div");
-document.body.appendChild(grid);
-div1.appendChild(grid);
-grid.setAttribute("id", "grid");
-
-// update with invalid input option
-
-function grid = (choice = 16) {
-  for(let i = 0; i = choice * choice; i++);
+function createElement(n = 16) {
+  for (let i = 0; i < n * n; i++) {
+    let box = document.createElement("div");
+    box.id = "box";
+    box.classList = "boxes";
+    gridBox.appendChild(box);
+  }
 }
+createElement(8);

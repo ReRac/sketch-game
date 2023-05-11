@@ -22,25 +22,8 @@ h1 {
 
 .buttons {
   display: flex;
-  flex-direction: ;
+  flex-direction: row;
   justify-content: center;
   gap: 15px;
   padding: 30px;
-}
-
-#grid-box {
-  display: grid;
-  height: 550px;
-  width: 550px;
-  box-shadow: 1px 1px 5px black;
-}
-
-.boxes {
-  display: flex;
-  justify-content: space-evenly;
-  flex: 1 1 0;
-  flex-wrap: wrap;
-
-  margin: auto;
-  border: solid black 1px;
 }

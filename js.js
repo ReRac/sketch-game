@@ -1,16 +1,15 @@
 const resetBtn = document.querySelector(".reset");
 const colorBtn = document.querySelector(".color");
-const monocromaticBtn = document.querySelector(".monochromatic");
+const monochromaticBtn = document.querySelector(".monochromatic");
 const submitBtn = document.querySelector(".submit");
+const gridB = document.querySelector("#grid-box");
 
-const gridB = document.querySelector("#gridBox");
-
-function createElement(n = 16) {
-  for (let i = 0; i < n * n; i++) {
-    let box = document.createElement("div");
-    box.id = "box";
-    box.classList = "boxes";
-    gridBox.appendChild(box);
-  }
+function makeGrid(n = 16) {
+  // created div for the element:
+  const gridDiv = document.createElement("div");
+  gridDiv.classList.add("make-div");
+  gridB.appendChild(gridDiv);
+  let cell = document.createElement("div");
+  cell.classList.add("cell");
+  gridDiv.appendChild(cell);
 }
-createElement(8);

@@ -7,7 +7,7 @@ body {
   background-color: black;
   font-family: sans-serif, "Times New Roman", Times, serif;
   line-height: 1.5;
-  max-height: 100vh;
+  height: 100vh;
 }
 
 h1 {
@@ -34,7 +34,7 @@ h1 {
 }
 
 .btn {
-  font-size: 20px;
+  font-size: 18px;
   padding: 10px 15px;
   height: 50px;
   border-radius: 15px;
@@ -43,9 +43,8 @@ h1 {
   border: 2px solid rgb(239, 4, 176);
   font-weight: 600;
   color: #fff;
-  text-shadow:
-    /* White glow */ 0 0 7px rgb(239, 4, 141),
-    0 0 10px rgb(233, 74, 214), 0 0 21px rgb(114, 63, 88);
+  text-shadow: 0 0 7px rgb(239, 4, 141), 0 0 10px rgb(233, 74, 214),
+    0 0 21px rgb(114, 63, 88);
 
   text-transform: uppercase;
   border-radius: 100px;
@@ -61,7 +60,26 @@ h1 {
 }
 
 .grid {
+  display: grid;
+  height: 50%;
+  width: 50%;
+  justify-content: 50%;
+  border: 2px solid rgb(239, 4, 176);
+  max-width: 660px;
+  min-width: 660px;
+}
+
+.rows {
   display: flex;
-  width: 960px;
-  height: 960px;
+  color: antiquewhite;
+  align-items: stretch;
+  flex-grow: 1;
+}
+
+.grid-box {
+  flex-grow: 1;
+  background-color: #fff;
+  border: 2px solid rgb(239, 4, 176);
+  box-shadow: 5px 5px 5px 0px rgb(239, 4, 176);
+  filter: drop-shadow(5px 5px 5px rgb(46, 12, 37));
 }

@@ -17,7 +17,7 @@ const createGrid = (number) => {
       let gridBox = document.createElement("div");
       gridBox.classList.add("grid-box");
       rows.appendChild(gridBox);
-      if (range === 15) {
+      if (number === 15) {
         let randomLetter =
           alphabet[Math.floor(Math.random() * alphabet.length)];
         gridBox.textContent = randomLetter;

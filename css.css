@@ -8,9 +8,11 @@ body {
   font-family: sans-serif, "Times New Roman", Times, serif;
   line-height: 1.5;
   height: 100vh;
+  padding: 30px;
 }
 
-h1 {
+h1,
+p {
   font-size: 24px;
   color: #fff;
   text-shadow:
@@ -33,7 +35,8 @@ h1 {
   background-color: rgb(0, 0, 0);
 }
 
-.btn {
+.btn,
+.p {
   font-size: 18px;
   padding: 10px 15px;
   height: 50px;
@@ -59,14 +62,40 @@ h1 {
     0 5px 50px 0 rgb(239, 4, 176) inset, 0 5px 50px 0 rgb(239, 4, 176);
 }
 
+.range-size {
+  width: 100%;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"]::-moz-range-track {
+  background-color: rgb(239, 4, 176);
+  border-radius: 30px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: rgb(239, 4, 176);
+  border-radius: 30px;
+}
+
 .grid {
+  gap: 20;
+  padding: 20;
   display: grid;
+  flex-shrink: 0;
   height: 50%;
   width: 50%;
-  justify-content: 50%;
   border: 2px solid rgb(239, 4, 176);
-  max-width: 660px;
-  min-width: 660px;
+  width: 600px;
+  height: 600px;
+  display: grid;
+  cursor: pointer;
 }
 
 .rows {
@@ -78,8 +107,16 @@ h1 {
 
 .grid-box {
   flex-grow: 1;
-  background-color: #fff;
   border: 2px solid rgb(239, 4, 176);
-  box-shadow: 5px 5px 5px 0px rgb(239, 4, 176);
+  box-shadow: 5px 5px 10px 0px rgb(239, 4, 176);
   filter: drop-shadow(5px 5px 5px rgb(46, 12, 37));
+}
+
+/*color button color picker*/
+
+.color-pick {
+  background-color: black;
+  border-radius: 10px;
+  border: 2px solid rgb(239, 4, 176);
+  margin-right: 3px;
 }

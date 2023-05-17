@@ -37,10 +37,22 @@ rangeInput.addEventListener("input", function () {
 });
 createGrid(15);
 
+// black and white button color
+
+index0 = 0;
+index1 = 1;
+const btnColor = ["black", "white"];
+
+blackAndWhiteBtn.addEventListener("click", function colorChange() {
+  blackAndWhiteBtn.style.backgroundColor = btnColor[index0];
+  index0 = index0 + 1;
+});
+console.log(btnColor);
+
+// color button
 colorBtn.addEventListener("click", () => {
-  let color = "green";
+  let color = "blue";
   color = colorPicker.value;
-  console.log(color);
 
   let gridBoxes = document.querySelectorAll(".grid-box");
   for (let i = 0; i < gridBoxes.length; i++) {

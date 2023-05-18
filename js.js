@@ -40,6 +40,7 @@ createGrid(15);
 //change black and white button color when clicked
 function changeBtnColor() {
   // initiates function
+  blackAndWhiteBtn.classList.toggle("monochromatic"); // remove background class
 }
 // color button
 colorBtn.addEventListener("click", () => {

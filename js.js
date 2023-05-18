@@ -37,18 +37,10 @@ rangeInput.addEventListener("input", function () {
 });
 createGrid(15);
 
-// black and white button color
-
-index0 = 0;
-index1 = 1;
-const btnColor = ["black", "white"];
-
-blackAndWhiteBtn.addEventListener("click", function colorChange() {
-  blackAndWhiteBtn.style.backgroundColor = btnColor[index0];
-  index0 = index0 + 1;
-});
-console.log(btnColor);
-
+//change black and white button color when clicked
+function changeBtnColor() {
+  // initiates function
+}
 // color button
 colorBtn.addEventListener("click", () => {
   let color = "blue";

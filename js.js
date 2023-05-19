@@ -39,9 +39,25 @@ createGrid(15);
 
 //change black and white button color when clicked
 function changeBtnColor() {
-  // initiates function
-  blackAndWhiteBtn.classList.toggle("monochromatic"); // remove background class
+  blackAndWhiteBtn.classList.toggle("monochromatic");
+  // Black and white button
+  blackAndWhiteBtn.addEventListener("click", () => {
+    bWColor = "black";
+    if (blackAndWhiteBtn.classList.contains("monochromatic")) {
+      bWColor = "white";
+    } else {
+      bWColor = "black";
+    }
+
+    let gridBoxes = document.querySelectorAll(".grid-box");
+    for (let i = 0; i < gridBoxes.length; i++) {
+      gridBoxes[i].addEventListener("mouseover", () => {
+        gridBoxes[i].style.backgroundColor = bWColor;
+      });
+    }
+  });
 }
+
 // color button
 colorBtn.addEventListener("click", () => {
   let color = "blue";

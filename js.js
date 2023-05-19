@@ -6,6 +6,7 @@ const container = document.querySelector("#container");
 const gridContainer = document.querySelector(".grid");
 const rangeInput = document.querySelector(".range-size");
 const colorPicker = document.querySelector(".color-pick");
+const rows = document.querySelector(".rows");
 const gridBox = document.querySelector(".grid-box");
 // Create gird, loop creates row and loops same time creating additional rows
 const createGrid = (number) => {
@@ -37,7 +38,7 @@ rangeInput.addEventListener("input", function () {
 });
 createGrid(15);
 
-//change black and white button color when clicked
+//change black and white button and div color when clicked
 function changeBtnColor() {
   blackAndWhiteBtn.classList.toggle("monochromatic");
   // Black and white button
@@ -69,4 +70,8 @@ colorBtn.addEventListener("click", () => {
       gridBoxes[i].style.backgroundColor = color;
     });
   }
+});
+
+resetBtn.addEventListener("click", function () {
+  gridBox.style.backgroundColor = "black";
 });

@@ -1,7 +1,7 @@
 const resetBtn = document.querySelector(".reset");
 const colorBtn = document.querySelector(".color");
 const blackAndWhiteBtn = document.querySelector(".monochromatic");
-const submitBtn = document.querySelector(".submit");
+const submitBtn = document.querySelector("#submit");
 const container = document.querySelector("#container");
 const gridContainer = document.querySelector(".grid");
 const rangeInput = document.querySelector(".range-size");
@@ -77,3 +77,11 @@ resetBtn.addEventListener("click", function () {
   gridContainer.innerHTML = "";
   createGrid(parseInt(rangeValue));
 });
+
+// disabled submit btn
+const disabledSubmitBtn = () => {
+  submitBtn.style.opacity = "0.5";
+  console.log("hey");
+  submitBtn.disabled = true;
+};
+window.addEventListener("load", disabledSubmitBtn);

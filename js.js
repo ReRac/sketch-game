@@ -73,5 +73,7 @@ colorBtn.addEventListener("click", () => {
 });
 
 resetBtn.addEventListener("click", function () {
-  gridBox.style.backgroundColor = "black";
+  const rangeValue = (rangeInput.value = 15);
+  gridContainer.innerHTML = "";
+  createGrid(parseInt(rangeValue));
 });

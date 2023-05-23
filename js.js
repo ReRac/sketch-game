@@ -9,6 +9,7 @@ const colorPicker = document.querySelector(".color-pick");
 const rows = document.querySelector(".rows");
 const gridBox = document.querySelector(".grid-box");
 // Create gird, loop creates row and loops same time creating additional rows
+
 const createGrid = (number) => {
   const alphabet = "FOOD";
   for (let i = 0; i < number; i++) {
@@ -78,10 +79,25 @@ resetBtn.addEventListener("click", function () {
   createGrid(parseInt(rangeValue));
 });
 
-// disabled submit btn
-const disabledSubmitBtn = () => {
+// disabled / enabled submit btn
+
+function enableSubmitBtn() {
+  submitBtn.style.opacity = "1";
+  submitBtn.disabled = false;
+}
+
+function disabledSubmitBtn() {
   submitBtn.style.opacity = "0.5";
-  console.log("hey");
   submitBtn.disabled = true;
+}
+const updateSubmitState = () => {
+  if (rangeInput.value === "8") {
+    enableSubmitBtn();
+    console.log("Button enabled");
+  } else {
+    disabledSubmitBtn();
+  }
 };
-window.addEventListener("load", disabledSubmitBtn);
+
+window.addEventListener("load", updateSubmitState);
+rangeInput.addEventListener("input", updateSubmitState);

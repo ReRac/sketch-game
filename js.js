@@ -115,3 +115,20 @@ submitBtn.addEventListener("click", () => {
     });
   }
 });
+
+function checkLetters() {
+  let gridBoxes = document.querySelectorAll(".grid-box");
+  let markedLetters = "";
+
+  for (let i = 0; i < gridBoxes.length; i++) {
+    markedLetters += gridBoxes[i].textContent;
+  }
+  if (markedLetters === "FOOD") {
+    console.log("Yey cat saved.");
+  } else {
+    submitBtn.addEventListener("click", () => {
+      checkLetters();
+    });
+    console.log("Oh, poor kitten...");
+  }
+}

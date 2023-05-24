@@ -10,6 +10,8 @@ const rows = document.querySelector(".rows");
 const gridBox = document.querySelector(".grid-box");
 // Create gird, loop creates row and loops same time creating additional rows
 
+const submitColorPink = "rgb(202, 4, 149)";
+
 const createGrid = (number) => {
   const alphabet = "FOOD";
   for (let i = 0; i < number; i++) {
@@ -50,33 +52,21 @@ function changeBtnColor() {
     } else {
       color = "black";
     }
-
-    let gridBoxes = document.querySelectorAll(".grid-box");
-    for (let i = 0; i < gridBoxes.length; i++) {
-      gridBoxes[i].addEventListener("mouseover", () => {
-        gridBoxes[i].style.backgroundColor = bWColor;
-      });
-    }
+    changeColor(color);
   });
 }
+// resize and reset grid
+resetBtn.addEventListener("click", function () {
+  const rangeValue = (rangeInput.value = 15);
+  gridContainer.innerHTML = "";
+  createGrid(parseInt(rangeValue));
+});
 
 // color button
 colorBtn.addEventListener("click", () => {
   let color = "blue";
   color = colorPicker.value;
-
-  let gridBoxes = document.querySelectorAll(".grid-box");
-  for (let i = 0; i < gridBoxes.length; i++) {
-    gridBoxes[i].addEventListener("mouseover", () => {
-      gridBoxes[i].style.backgroundColor = color;
-    });
-  }
-});
-
-resetBtn.addEventListener("click", function () {
-  const rangeValue = (rangeInput.value = 15);
-  gridContainer.innerHTML = "";
-  createGrid(parseInt(rangeValue));
+  changeColor(color);
 });
 
 // disabled / enabled submit btn
@@ -130,5 +120,15 @@ function checkLetters() {
       checkLetters();
     });
     console.log("Oh, poor kitten...");
+  }
+}
+
+//Dry up color picking code
+function changeColor(color) {
+  let gridBoxes = document.querySelectorAll(".grid-box");
+  for (let i = 0; i < gridBoxes.length; i++) {
+    gridBoxes[i].addEventListener("mouseover", () => {
+      gridBoxes[i].style.backgroundColor = color;
+    });
   }
 }

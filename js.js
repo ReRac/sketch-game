@@ -44,11 +44,11 @@ function changeBtnColor() {
   blackAndWhiteBtn.classList.toggle("monochromatic");
   // Black and white button
   blackAndWhiteBtn.addEventListener("click", () => {
-    bWColor = "black";
+    color = "black";
     if (blackAndWhiteBtn.classList.contains("monochromatic")) {
-      bWColor = "white";
+      color = "white";
     } else {
-      bWColor = "black";
+      color = "black";
     }
 
     let gridBoxes = document.querySelectorAll(".grid-box");
@@ -101,3 +101,17 @@ const updateSubmitState = () => {
 
 window.addEventListener("load", updateSubmitState);
 rangeInput.addEventListener("input", updateSubmitState);
+
+// task function via submit button
+
+// cursor color pink
+submitBtn.addEventListener("click", () => {
+  const color = "rgb(202, 4, 149)";
+
+  let gridBoxes = document.querySelectorAll(".grid-box");
+  for (let i = 0; i < gridBoxes.length; i++) {
+    gridBoxes[i].addEventListener("click", () => {
+      gridBoxes[i].style.backgroundColor = color;
+    });
+  }
+});

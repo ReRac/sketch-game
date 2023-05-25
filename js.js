@@ -41,6 +41,22 @@ rangeInput.addEventListener("input", function () {
 });
 createGrid(15);
 
+// resize and reset grid
+resetBtn.addEventListener("click", function () {
+  const rangeValue = (rangeInput.value = 15);
+  gridContainer.innerHTML = "";
+  createGrid(parseInt(rangeValue));
+});
+
+//color picking
+function changeColor(color) {
+  let gridBoxes = document.querySelectorAll(".grid-box");
+  for (let i = 0; i < gridBoxes.length; i++) {
+    gridBoxes[i].addEventListener("mouseover", () => {
+      gridBoxes[i].style.backgroundColor = color;
+    });
+  }
+}
 //change black and white button and div color when clicked
 function changeBtnColor() {
   blackAndWhiteBtn.classList.toggle("monochromatic");
@@ -55,12 +71,6 @@ function changeBtnColor() {
     changeColor(color);
   });
 }
-// resize and reset grid
-resetBtn.addEventListener("click", function () {
-  const rangeValue = (rangeInput.value = 15);
-  gridContainer.innerHTML = "";
-  createGrid(parseInt(rangeValue));
-});
 
 // color button
 colorBtn.addEventListener("click", () => {
@@ -74,11 +84,13 @@ colorBtn.addEventListener("click", () => {
 function enableSubmitBtn() {
   submitBtn.style.opacity = "1";
   submitBtn.disabled = false;
+  submitBtn.style.backgroundColor = "black";
 }
 
 function disabledSubmitBtn() {
   submitBtn.style.opacity = "0.5";
   submitBtn.disabled = true;
+  submitBtn.style.backgroundColor = "black";
 }
 const updateSubmitState = () => {
   if (rangeInput.value === "8") {
@@ -108,27 +120,36 @@ submitBtn.addEventListener("click", () => {
 
 function checkLetters() {
   let gridBoxes = document.querySelectorAll(".grid-box");
-  let markedLetters = "";
+  let letters = "";
 
   for (let i = 0; i < gridBoxes.length; i++) {
-    markedLetters += gridBoxes[i].textContent;
+    if (gridBoxes[i].style.backgroundColor !== "") {
+      letters += gridBoxes[i].textContent;
+    }
   }
-  if (markedLetters === "FOOD") {
+  if (
+    letters.includes("F") &&
+    letters.includes("O") &&
+    letters.includes("O") &&
+    letters.includes("D")
+  ) {
     console.log("Yey cat saved.");
   } else {
-    submitBtn.addEventListener("click", () => {
-      checkLetters();
-    });
     console.log("Oh, poor kitten...");
   }
+  console.log();
 }
 
-//Dry up color picking code
-function changeColor(color) {
-  let gridBoxes = document.querySelectorAll(".grid-box");
-  for (let i = 0; i < gridBoxes.length; i++) {
-    gridBoxes[i].addEventListener("mouseover", () => {
-      gridBoxes[i].style.backgroundColor = color;
-    });
-  }
+function changeSubmitBtnColor() {
+  submitBtn.classList.toggle("submit");
+  // Black and white button
+  submitBtn.addEventListener("click", () => {
+    submitBtn.style.backgroundColor = "black";
+    if (submitBtn.classList.contains("submit")) {
+      submitBtn.style.backgroundColor = "rgb(245, 217, 59)";
+    } else {
+      submitBtn.style.backgroundColor = "black";
+    }
+    checkLetters();
+  });
 }

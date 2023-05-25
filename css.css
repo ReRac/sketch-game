@@ -4,18 +4,30 @@ body {
   align-items: center;
   text-align: center;
   flex-direction: column;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   font-family: sans-serif, "Times New Roman", Times, serif;
   line-height: 1.5;
   height: 100vh;
   padding: 30px;
+  max-height: 100vh;
+  background-image: url(./shark.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
+/* 
+body {
+  font-family: sans-serif, "Times New Roman", Times, serif;
+  line-height: 1.5;
+  max-height: 100vh;
+  background-image: url(./bgr3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center; */
 h1,
 h2,
 p {
   font-size: 24px;
-  color: #fff;
+  color: #ffffff;
   text-shadow:
     /* White glow */ 0 0 7px rgb(239, 4, 141),
     0 0 10px rgb(233, 74, 214), 0 0 21px rgb(114, 63, 88);
@@ -33,7 +45,6 @@ p {
   justify-content: center;
   gap: 15px;
   font-weight: 400;
-  background-color: rgb(0, 0, 0);
 }
 
 .btn,
@@ -66,6 +77,10 @@ p {
 
 .monochromatic {
   background-color: rgb(255, 255, 255);
+}
+
+.submit {
+  background-color: rgb(245, 217, 59);
 }
 
 .range-size {

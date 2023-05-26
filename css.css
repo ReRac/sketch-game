@@ -9,20 +9,16 @@ body {
   line-height: 1.5;
   height: 100vh;
   padding: 30px;
-  max-height: 100vh;
-  background-image: url(./shark.jpg);
+
+  background-image: url(https://wallpaperaccess.com/full/5073055.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
-/* 
-body {
-  font-family: sans-serif, "Times New Roman", Times, serif;
-  line-height: 1.5;
-  max-height: 100vh;
-  background-image: url(./bgr3.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  text-align: center; */
+
+img {
+  max-height: 100px;
+  max-width: 100px;
+}
 h1,
 h2,
 p {

@@ -118,27 +118,34 @@ submitBtn.addEventListener("click", () => {
   }
 });
 
+// check if submitted answer is correct
 function checkLetters() {
   let gridBoxes = document.querySelectorAll(".grid-box");
-  let letters = "";
+  let = markedLetters = [];
 
-  for (let i = 0; i < gridBoxes.length; i++) {
-    if (gridBoxes[i].style.backgroundColor !== "") {
-      letters += gridBoxes[i].textContent;
-    }
+  for (let i = 0; i < gridBoxes.length; i++); {
+  if (gridBoxes[i].style.backgroundColor !== ""); {
+  markedLetters.push(gridBoxes[i].textContent)
   }
-  if (
-    letters.includes("F") &&
-    letters.includes("O") &&
-    letters.includes("O") &&
-    letters.includes("D")
-  ) {
-    console.log("Yey cat saved.");
-  } else {
-    console.log("Oh, poor kitten...");
-  }
-  console.log();
 }
+
+const nonRepetitiveLetters = new Set(markedLetters);
+const oRepetitive = markedLetters.filter((letter) => letter === "O").length;
+if (
+  markedLetters.length === 4 &&
+  nonRepetitiveLetters.size === 3 &&&
+  nonRepetitiveLetters.has("F") &&
+  nonRepetitiveLetters.has("D") &&
+  oRepetitive === 2 ) {
+    console.log("Yey, cat is saved")
+  } else {
+  console.log("Oh, no no no...! ");
+}
+}
+
+
+
+
 
 function changeSubmitBtnColor() {
   submitBtn.classList.toggle("submit");

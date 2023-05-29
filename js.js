@@ -19,7 +19,9 @@ const findGridSquares = () => {
   let gridBoxes = document.querySelectorAll(".grid-box");
   for (let i = 0; i < gridBoxes.length; i++) {
     gridBoxes[i].addEventListener("mouseover", () => {
-      gridBoxes[i].style.backgroundColor = color;
+      if (color && rangeInput.value !== "8") {
+        gridBoxes[i].style.backgroundColor = color;
+      }
     });
   }
 };

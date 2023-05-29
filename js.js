@@ -8,9 +8,21 @@ const rangeInput = document.querySelector(".range-size");
 const colorPicker = document.querySelector(".color-pick");
 const rows = document.querySelector(".rows");
 const gridBox = document.querySelector(".grid-box");
+const colorPickerInput = document.querySelector("#picker");
 // Create gird, loop creates row and loops same time creating additional rows
 
 const submitColorPink = "rgb(202, 4, 149)";
+
+let color = "black";
+
+const findGridSquares = () => {
+  let gridBoxes = document.querySelectorAll(".grid-box");
+  for (let i = 0; i < gridBoxes.length; i++) {
+    gridBoxes[i].addEventListener("mouseover", () => {
+      gridBoxes[i].style.backgroundColor = color;
+    });
+  }
+};
 
 const createGrid = (number) => {
   const alphabet = "FOOD";
@@ -30,6 +42,7 @@ const createGrid = (number) => {
     }
     gridContainer.appendChild(rows);
   }
+  findGridSquares();
 };
 
 //Slider function witch removes old data when using it
@@ -45,18 +58,15 @@ createGrid(15);
 resetBtn.addEventListener("click", function () {
   const rangeValue = (rangeInput.value = 15);
   gridContainer.innerHTML = "";
-  createGrid(parseInt(rangeValue));
+  createGrid(parseInt(rangeValue)); // Reset color picker value
+  colorPickerInput.value = null;
 });
 
-//color picking
-function changeColor(color) {
-  let gridBoxes = document.querySelectorAll(".grid-box");
-  for (let i = 0; i < gridBoxes.length; i++) {
-    gridBoxes[i].addEventListener("mouseover", () => {
-      gridBoxes[i].style.backgroundColor = color;
-    });
-  }
+//color picking - (_color parameter is intentionally unused or ignored)
+function changeColor(_color) {
+  color = _color;
 }
+
 //change black and white button and div color when clicked
 function changeBtnColor() {
   blackAndWhiteBtn.classList.toggle("monochromatic");
@@ -71,14 +81,10 @@ function changeBtnColor() {
     changeColor(color);
   });
 }
-
 // color button
-colorBtn.addEventListener("click", () => {
-  let color = "blue";
-  color = colorPicker.value;
-  changeColor(color);
-});
-
+colorPickerInput.oninput = (e) => {
+  changeColor(e.target.value);
+};
 // disabled / enabled submit btn
 
 function enableSubmitBtn() {
@@ -118,34 +124,29 @@ submitBtn.addEventListener("click", () => {
   }
 });
 
-// check if submitted answer is correct
 function checkLetters() {
   let gridBoxes = document.querySelectorAll(".grid-box");
-  let = markedLetters = [];
+  let markedLetters = [];
 
-  for (let i = 0; i < gridBoxes.length; i++); {
-  if (gridBoxes[i].style.backgroundColor !== ""); {
-  markedLetters.push(gridBoxes[i].textContent)
+  for (let i = 0; i < gridBoxes.length; i++) {
+    if (gridBoxes[i].style.backgroundColor !== "") {
+      markedLetters.push(gridBoxes[i].textContent);
+    }
+  }
+  const nonRepeatLetters = new Set(markedLetters);
+  const oCount = markedLetters.filter((letters) => letters === "O").length;
+  if (
+    markedLetters.length === 4 &&
+    nonRepeatLetters.size === 3 &&
+    nonRepeatLetters.has("F") &&
+    nonRepeatLetters.has("D") &&
+    oCount === 2
+  ) {
+    console.log("Yay, you saved the cat!");
+  } else {
+    console.log("Oh, no no no no...");
   }
 }
-
-const nonRepetitiveLetters = new Set(markedLetters);
-const oRepetitive = markedLetters.filter((letter) => letter === "O").length;
-if (
-  markedLetters.length === 4 &&
-  nonRepetitiveLetters.size === 3 &&&
-  nonRepetitiveLetters.has("F") &&
-  nonRepetitiveLetters.has("D") &&
-  oRepetitive === 2 ) {
-    console.log("Yey, cat is saved")
-  } else {
-  console.log("Oh, no no no...! ");
-}
-}
-
-
-
-
 
 function changeSubmitBtnColor() {
   submitBtn.classList.toggle("submit");

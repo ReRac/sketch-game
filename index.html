@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css.css" />
+    
     <title>Document</title>
   </head>
 
@@ -21,7 +22,7 @@
     </div>
     <div id="buttons" class="buttons">
       <button id="reset" class="btn reset">RESET</button>
-      <button id="color" class="btn color"><input type="color" class="color-pick">COLOR</button>
+      <button id="color" class="btn color"><input type="color" class="color-pick" id="picker">COLOR</button>
       <button  onclick="changeBtnColor()" id="monohromatic" class="btn monochromatic">B&White</button>
       <button onclick="changeSubmitBtnColor()" id="submit"type="submit" input="text" class="btn submit disabled">SUBMIT</button>
       </button>
@@ -32,5 +33,11 @@
       <p>Size --> - / + </p>
       <input id="my-range" class="range-size hidden" type="range" min="4" max="40"value"4">
     </div>
+    <div class="modal hidden">
+      <button class="close modal btn"></button>
+      <h1>Proceed to the nex level!</h1>
+      <p>You still have a chance to save this fluffy ball.<p>
+    </div>
+    <div class="overlay=hidden"></div>
   </body>
 </html>

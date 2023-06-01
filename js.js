@@ -9,6 +9,8 @@ const colorPicker = document.querySelector(".color-pick");
 const rows = document.querySelector(".rows");
 const gridBox = document.querySelector(".grid-box");
 const colorPickerInput = document.querySelector("#picker");
+const popup = document.querySelector("#popup");
+
 // Create gird, loop creates row and loops same time creating additional rows
 
 const submitColorPink = "rgb(202, 4, 149)";
@@ -144,7 +146,6 @@ function checkLetters() {
     nonRepeatLetters.has("D") &&
     oCount === 2
   ) {
-    console.log("Yay, you saved the cat!");
   } else {
     console.log("Oh, no no no no...");
   }
@@ -163,3 +164,11 @@ function changeSubmitBtnColor() {
     checkLetters();
   });
 }
+
+// popup
+// function openPopup() {
+//   popup.classList.add("openPopup");
+// }
+// function closePopup() {
+//   popup.classList.remove("closePopup");
+// }
